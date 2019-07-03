@@ -6,6 +6,7 @@
   "scripts": {
     "start": "parcel -p 8080 ./src/index.html",
     "build": "parcel build ./src/index.html --public-url ./",
+    "build-electron": "parcel build ./src/index.html --out-dir ./electron/dist --public-url ./ && electron-packager ./electron App --arch ia32 --platform win32 --out ../build/ --app-version 0.30.2 --overwrite --prune false",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -30,6 +31,7 @@
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "electron": "^5.0.6",
+    "electron-packager": "^14.0.1",
     "parcel-bundler": "^1.12.3"
   }
 }
