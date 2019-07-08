@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "preinstall": "cd ./electron && npm i",
     "start": "parcel -p 8080 ./src/index.html",
     "build": "parcel build ./src/index.html --public-url ./",
-    "build-electron": "parcel build ./src/index.html --out-dir ./electron/dist --public-url ./ && electron-packager ./electron App --arch ia32 --platform win32 --out ../build/ --app-version 0.30.2 --overwrite --prune false",
+    "build-electron": "parcel build ./src/index.html --out-dir ./electron/dist --public-url ./ && cd ./electron && electron-packager ./ App --arch ia32 --platform win32 --out ../build/ --app-version 0.30.2 --overwrite --prune false",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,6 +19,7 @@
     "pouchdb": "^7.1.1",
     "pouchdb-find": "^7.1.1",
     "react": "^16.8.6",
+    "react-autocomplete": "^1.8.1",
     "react-bulma-components": "^2.3.0",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
@@ -30,7 +32,7 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
-    "electron": "^5.0.6",
+    "app": "file:electron",
     "electron-packager": "^14.0.1",
     "parcel-bundler": "^1.12.3"
   }

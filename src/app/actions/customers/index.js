@@ -41,3 +41,9 @@ export const listCustomers = () => {
   }
 
 }
+
+export const deleteCustomer = (data) =>{
+  return async (dispatch) => {
+    const res = await db.remove(data._id, data._rev);
+  }
+}

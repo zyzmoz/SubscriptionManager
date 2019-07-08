@@ -3,8 +3,9 @@ import { Button, Table, Dropdown } from 'react-bulma-components';
 import Octicon, { Pencil, Trashcan, Plus } from '@primer/octicons-react';
 import CustomerForm from '../../components/Customers/CustomerForm';
 import { connect } from 'react-redux';
-import { saveCustomer, listCustomers } from '../../actions/customers';
+import { saveCustomer, listCustomers, deleteCustomer } from '../../actions/customers';
 import { openModal, closeModal } from '../../actions/modal';
+
 
 const mapState = (state) => ({
   customers: state.customers.list
@@ -14,7 +15,8 @@ const actions = {
   closeModal,
   openModal,
   saveCustomer,
-  listCustomers
+  listCustomers,
+  deleteCustomer
 }
 
 
@@ -26,6 +28,11 @@ class Customers extends Component {
   save = async (data) => {
     await this.props.saveCustomer(data);
     await this.props.listCustomers();    
+  }
+
+  delete = async (data) => {
+    await this.props.deleteCustomer(data);
+    await this.props.listCustomers();   
   }
 
   componentDidMount() {
@@ -77,7 +84,9 @@ class Customers extends Component {
                       color="primary">
                       <Octicon icon={Pencil} />
                     </Button>                    
-                    <Button color="danger">
+                    <Button 
+                      onClick={() => this.delete(customer)}
+                      color="danger">
                       <Octicon icon={Trashcan} />
                     </Button>
                   </th>
