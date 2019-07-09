@@ -15,7 +15,7 @@ app.on('ready', () => {
   mainWindow.maximize();
   mainWindow.show();
 
-  // mainWindow.setMenu(null);
+  mainWindow.setMenu(null);
   mainWindow.loadURL(`file://${__dirname}/dist/index.html`);
   mainWindow.on('closed', () => app.quit());
 })
