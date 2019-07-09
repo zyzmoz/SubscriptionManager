@@ -68,7 +68,7 @@ class Customers extends Component {
               <tr>
                 <th>#</th>
                 <th>Nome</th>
-                <th>Usuário</th>
+                <th>Email</th>
                 <th>Ações</th>
               </tr>
             </thead>
@@ -77,7 +77,7 @@ class Customers extends Component {
                 <tr key={i}>
                   <th>{i}</th>
                   <th>{customer.name}</th>
-                  <th>{customer.user}</th>
+                  <th>{customer.email}</th>
                   <th className="acoes">
                     <Button 
                       onClick={() => this.props.openModal(<CustomerForm cancel={this.cancel} save={this.save} customer={customer} />)}

@@ -19,8 +19,7 @@ const CustomerForm = ({ cancel, save, customer }) => {
       <h3>
         Dados do Cliente
       </h3>
-      <Input name="name" label="Nome" className="input" />
-      <Input name="user" label="Usuário" className="input" />
+      <Input name="name" label="Nome" className="input" />      
       <Input name="email" label="Email" className="input" type="email" />
       <Input name="phone" label="Telefone" className="input" />
       <Input name="address" label="Endereço" className="input" />

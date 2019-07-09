@@ -88,3 +88,21 @@ a {
 .list-view .acoes button {  
   margin-left: 5px;
 }
+
+.autocomplete {
+  width: 100%;
+}
+
+.auto-items {
+  z-index: 0;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox input {
+  margin-top: 3px;  
+  margin-left: 5px;
+}
