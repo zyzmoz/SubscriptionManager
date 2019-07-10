@@ -106,3 +106,15 @@ a {
   margin-top: 3px;  
   margin-left: 5px;
 }
+
+.prompt .title {
+  font-size: 24px;
+}
+
+.prompt .message {
+  background-color: #fff;
+}
+
+.prompt .actions button {  
+  margin-left: 5px;
+}

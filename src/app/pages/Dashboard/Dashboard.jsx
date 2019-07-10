@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import SubscriptionForm from '../../components/Subscription/SubscriptionForm';
 import { listSubscriptions, saveSubscription, deleteSubscription } from '../../actions/subscriptions';
 import moment from 'moment';
+import Prompt from '../../components/Prompt/Prompt';
 
 const mapState = (state) => ({
   subs: state.subscriptions.list
@@ -31,9 +32,20 @@ class Dashboard extends Component {
     await this.props.listSubscriptions();
   }
 
-  delete = async (data) => {    
-    await this.props.deleteSubscription(data);
-    await this.props.listSubscriptions();
+  delete = (data) => { 
+    const confirm = async() => {
+      await this.props.deleteSubscription(data);
+      await this.props.closeModal();
+      await this.props.listSubscriptions();
+    }
+    this.props.openModal(
+      <Prompt 
+        title="Aviso" 
+        message={["Deseja excluir a assinatura do usuário: ", <b>{data.user}</b>, "?"]}
+        cancel={this.props.closeModal}
+        confirm={confirm}
+      />
+    );       
   }
 
 

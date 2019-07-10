@@ -5,6 +5,7 @@ import CustomerForm from '../../components/Customers/CustomerForm';
 import { connect } from 'react-redux';
 import { saveCustomer, listCustomers, deleteCustomer } from '../../actions/customers';
 import { openModal, closeModal } from '../../actions/modal';
+import Prompt from '../../components/Prompt/Prompt';
 
 
 const mapState = (state) => ({
@@ -30,9 +31,21 @@ class Customers extends Component {
     await this.props.listCustomers();    
   }
 
-  delete = async (data) => {
-    await this.props.deleteCustomer(data);
-    await this.props.listCustomers();   
+  delete = (data) => {
+    const confirm = async() => {
+      await this.props.deleteCustomer(data);
+      await this.props.closeModal();
+      await this.props.listCustomers();              
+    }
+    this.props.openModal(
+      <Prompt 
+        title="Aviso" 
+        message={["Deseja excluir o Cliente: ", <b>{data.name}</b>, "?"]}
+        cancel={this.props.closeModal}
+        confirm={confirm}
+      />
+    );  
+     
   }
 
   componentDidMount() {
