@@ -10,6 +10,7 @@ App built to manage any kind of subscription
 - Octicons
 - Parcel Bundler
 - PouchDB
+- Electron
 
 ## Commands
 
@@ -20,7 +21,7 @@ Run development server (port 8080):
 
 Run build (default folder 'build'):
 ```
-  npm build
+  npm run build-electron
 ```
 
 Feel free to fork, copy and study it!
