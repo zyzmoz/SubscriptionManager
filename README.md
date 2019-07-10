@@ -9,7 +9,7 @@ App built to manage any kind of subscription
 - Redux
 - Octicons
 - Parcel Bundler
-- PouchSB
+- PouchDB
 
 ## Commands
 
