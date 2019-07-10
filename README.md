@@ -1,4 +1,4 @@
-# Pomodoro Clock
+# Subscription Manager
 
 App built to manage any kind of subscription
 
